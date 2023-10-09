@@ -1,0 +1,385 @@
+/*
+**  Copyright (C) 1986, 1987, 1988, 1989, 1990 Free Software Foundation, Inc.
+**  Copyright (c) 1988, 1989, 1990  John Stanback
+**
+**  Project:    OS/2 PM Port of GNU CHESS 3.1 (PmChess)
+**
+**  Version:    1990-11-17
+**
+**     File:    Resource File (PmChess.rc)
+**
+**   Porter:    Ported to Windows 3.0 by Darly Baker
+**
+**   Porter:    Ported to OS/2 1.2+ by Kent Cedola
+**
+**   System:    OS2 1.2 using Microsoft C 6.0
+**
+**  License:
+**
+**    CHESS is distributed in the hope that it will be useful, but WITHOUT ANY
+**    WARRANTY.  No author or distributor accepts responsibility to anyone for
+**    the consequences of using it or for whether it serves any particular
+**    purpose or works at all, unless he says so in writing.  Refer to the
+**    CHESS General Public License for full details.
+**
+**    Everyone is granted permission to copy, modify and redistribute CHESS,
+**    but only under the conditions described in the CHESS General Public
+**    License.  A copy of this license is supposed to have been given to you
+**    along with CHESS so you can know your rights and responsibilities.  It
+**    should be in a file named COPYING.  Among other things, the copyright
+**    notice and this notice must be preserved on all copies.
+*/
+
+#include <os2.h>
+#include "Resource.h"
+
+
+POINTER IDR_PMCHESS PmChess.ico
+
+
+BITMAP  IDB_PAWN        "Pawn.bmp"
+BITMAP  IDB_KNIGHT      "Knight.bmp"
+BITMAP  IDB_BISHOP      "Bishop.bmp"
+BITMAP  IDB_ROOK        "Rook.bmp"
+BITMAP  IDB_QUEEN       "Queen.bmp"
+BITMAP  IDB_KING        "King.bmp"
+BITMAP  IDB_PAWNM       "Pawnm.bmp"
+BITMAP  IDB_KNIGHTM     "Knightm.bmp"
+BITMAP  IDB_BISHOPM     "Bishopm.bmp"
+BITMAP  IDB_ROOKM       "Rookm.bmp"
+BITMAP  IDB_QUEENM      "Queenm.bmp"
+BITMAP  IDB_KINGM       "Kingm.bmp"
+BITMAP  IDB_PAWNO       "Pawno.bmp"
+BITMAP  IDB_KNIGHTO     "Knighto.bmp"
+BITMAP  IDB_BISHOPO     "Bishopo.bmp"
+BITMAP  IDB_ROOKO       "Rooko.bmp"
+BITMAP  IDB_QUEENO      "Queeno.bmp"
+BITMAP  IDB_KINGO       "Kingo.bmp"
+
+
+MENU IDR_PMCHESS PRELOAD
+  {
+  SUBMENU "~File", IDM_FILE
+    {
+    MENUITEM "~New",                    IDM_FILE_NEW
+    MENUITEM "~Open...",                IDM_FILE_OPEN
+    MENUITEM "~Save",                   IDM_FILE_SAVE
+    MENUITEM "Save ~As...",             IDM_FILE_SAVEAS
+    MENUITEM "~List...",                IDM_FILE_LIST
+    MENUITEM SEPARATOR
+    MENUITEM "E~xit",                   IDM_FILE_EXIT
+    }
+
+  SUBMENU "~Edit", IDM_EDIT
+  BEGIN
+    MENUITEM "~Setup Board",            IDM_EDIT_BOARD
+    MENUITEM "R~eview Game...",         IDM_EDIT_GAME
+    MENUITEM SEPARATOR
+    MENUITEM "~Undo",                   IDM_EDIT_UNDO
+    MENUITEM "~Remove",                 IDM_EDIT_REMOVE
+    MENUITEM SEPARATOR
+    MENUITEM "~Force",                  IDM_EDIT_FORCE
+  END
+
+  SUBMENU "~Options", IDM_OPTIONS
+    {
+    MENUITEM "~Tone",                   IDM_OPTIONS_TONE
+    MENUITEM "C~oordinates",            IDM_OPTIONS_COOR
+    MENUITEM "S~earch Stats...",        IDM_OPTIONS_STATS
+    MENUITEM "T~est Speed...",          IDM_OPTIONS_SPEED
+    MENUITEM SEPARATOR
+    MENUITEM "~Hash",                   IDM_OPTIONS_HASH
+    MENUITEM "B~oth",                   IDM_OPTIONS_BOTH
+    MENUITEM "Boo~k",                   IDM_OPTIONS_BOOK
+    MENUITEM SEPARATOR
+    MENUITEM "~A Window...",            IDM_OPTIONS_AWINDOW
+    MENUITEM "~B Window...",            IDM_OPTIONS_BWINDOW
+    MENUITEM "~Contemp...",             IDM_OPTIONS_CONTEMP
+    }
+
+  SUBMENU "~Skill", IDM_SKILL
+    {
+    MENUITEM "~Time...",                IDM_SKILL_TIME
+    MENUITEM SEPARATOR
+    MENUITEM "~Random",                 IDM_SKILL_RANDOM
+    MENUITEM "~Easy",                   IDM_SKILL_EASY
+    MENUITEM "~Depth...",               IDM_SKILL_DEPTH
+    }
+
+  SUBMENU "S~ide", IDM_SIDE
+    {
+    MENUITEM "~Reverse",                IDM_SIDE_REVERSE
+    MENUITEM "~Switch",                 IDM_SIDE_SWITCH
+    MENUITEM "~Black",                  IDM_SIDE_BLACK
+    MENUITEM "~White",                  IDM_SIDE_WHITE
+    }
+
+  SUBMENU "~Colors", IDM_COLORS
+    {
+    MENUITEM "~Window Background...",   IDM_COLORS_BACKGROUND
+    MENUITEM "~Black Squares...",       IDM_COLORS_BSQUARES
+    MENUITEM "~White Squares...",       IDM_COLORS_WSQUARES
+    MENUITEM "B~lack Pieces...",        IDM_COLORS_BPIECES
+    MENUITEM "W~hite Pieces...",        IDM_COLORS_WPIECES
+    MENUITEM "~Text Color...",          IDM_COLORS_TEXT
+    MENUITEM SEPARATOR
+    MENUITEM "~Default Colors",         IDM_COLORS_DEFAULT
+    }
+
+  MENUITEM "Hi~nt!", IDM_HINT
+
+  SUBMENU "~Help", IDM_HELP
+    {
+    MENUITEM "~Help for help...",       IDM_HELP_DISPLAY
+    MENUITEM "~Extended help...",       IDM_HELP_EXT
+    MENUITEM "~Keys help...",           IDM_HELP_KEYS
+    MENUITEM "Help ~index...",          IDM_HELP_INDEX
+    MENUITEM SEPARATOR
+    MENUITEM "~About...",               IDM_HELP_ABOUT
+    }
+  }
+
+MENU IDR_EDIT
+  {
+  MENUITEM "~Done!",                    IDM_EDIT_DONE
+
+  SUBMENU "~Help", IDM_HELP
+    {
+    MENUITEM "~Help for help...",       IDM_HELP_DISPLAY
+    MENUITEM "~Extended help...",       IDM_HELP_EXT
+    MENUITEM "~Keys help...",           IDM_HELP_KEYS
+    MENUITEM "Help ~index...",          IDM_HELP_INDEX
+    MENUITEM SEPARATOR
+    MENUITEM "~About...",               IDM_HELP_ABOUT
+    }
+  }
+
+ACCELTABLE IDR_PMCHESS
+     {
+     VK_DELETE, IDM_EDIT_UNDO, VIRTUALKEY, SHIFT
+     VK_INSERT, IDM_EDIT_UNDO, VIRTUALKEY, CONTROL
+     VK_INSERT, IDM_EDIT_UNDO, VIRTUALKEY, SHIFT
+     }
+
+DLGTEMPLATE IDD_COLORS LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "", IDD_COLORS, 32, 32, 180, 180, FS_DLGBORDER | WS_CLIPSIBLINGS | WS_SAVEBITS
+    BEGIN
+        CONTROL "", 8448, 10, 166, 160, 8, WC_STATIC, SS_TEXT | DT_CENTER | 
+                DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "Color", 65535, 16, 32, 148, 130, WC_STATIC, SS_GROUPBOX | 
+                WS_GROUP | WS_VISIBLE
+        CONTROL "Black", 8449, 20, 136, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Blue", 8450, 20, 122, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Green", 8451, 20, 108, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Cyan", 8452, 20, 94, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Red", 8453, 20, 80, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Pink", 8454, 20, 66, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Yellow", 8455, 20, 52, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Pale Gray", 8456, 20, 38, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Dark Gray", 8457, 94, 136, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Dark Blue", 8458, 94, 122, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Dark Green", 8459, 94, 108, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Dark Cyan", 8460, 94, 94, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Dark Red", 8461, 94, 80, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Dark Pink", 8462, 94, 66, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "Brown", 8463, 94, 52, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "White", 8464, 94, 38, 64, 12, WC_BUTTON, BS_RADIOBUTTON | 
+                WS_VISIBLE
+        CONTROL "OK", 1, 16, 8, 52, 16, WC_BUTTON, BS_PUSHBUTTON | BS_DEFAULT | 
+                WS_TABSTOP | WS_VISIBLE | WS_GROUP
+        CONTROL "Cancel", 2, 112, 8, 52, 16, WC_BUTTON, BS_PUSHBUTTON | 
+                WS_VISIBLE
+    END
+END
+
+DLGTEMPLATE IDD_PROMOTE LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "Promote Pawn     ", IDD_PROMOTE, 43, 83, 224, 43, FS_NOBYTEALIGN | 
+                FS_DLGBORDER | WS_VISIBLE | WS_SAVEBITS, FCF_SYSMENU | 
+                FCF_TITLEBAR
+    BEGIN
+        CONTROL "Queen", IDC_PROMOTE_QUEEN, 173, 26, 46, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_GROUP | WS_VISIBLE
+        CONTROL "Rook", IDC_PROMOTE_ROOK, 119, 26, 46, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE
+        CONTROL "Bishop", IDC_PROMOTE_BISHOP, 61, 26, 46, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE
+        CONTROL "Knight", IDC_PROMOTE_KNIGHT, 8, 26, 46, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE
+        CONTROL "Ok", 1, IDC_OK, 5, 51, 13, WC_BUTTON, BS_PUSHBUTTON | BS_DEFAULT |
+                WS_TABSTOP | WS_VISIBLE | WS_GROUP
+    END
+END
+
+DLGTEMPLATE IDD_TEST LOADONCALL MOVEABLE DISCARDABLE 
+BEGIN
+    DIALOG "Test Speed     ", IDD_TEST, 73, 54, 190, 74, FS_NOBYTEALIGN | 
+                FS_DLGBORDER | WS_VISIBLE | WS_CLIPSIBLINGS | WS_SAVEBITS, 
+                FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+        CONTROL "MoveList Speed:", IDC_NULL, 9, 59, 73, 8, WC_STATIC, SS_TEXT |
+                DT_LEFT | DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "", IDC_TEST_MOVELIST, 9, 47, 170, 8, WC_STATIC, SS_TEXT |
+                DT_LEFT | DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "CaptureList Speed:", IDC_NULL, 9, 34, 85, 8, WC_STATIC, SS_TEXT |
+                DT_LEFT | DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "", IDC_TEST_CAPTURELIST, 9, 22, 164, 8, WC_STATIC, SS_TEXT | DT_LEFT |
+                DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "Ok", IDC_OK, 73, 4, 47, 13, WC_BUTTON, BS_PUSHBUTTON | BS_DEFAULT |
+                WS_TABSTOP | WS_VISIBLE
+    END
+END
+
+DLGTEMPLATE IDD_STATS LOADONCALL MOVEABLE DISCARDABLE 
+BEGIN
+    DIALOG "Search Statistics", IDD_STATS, 36, 24, 129, 137, FS_NOBYTEALIGN | 
+                FS_DLGBORDER | WS_VISIBLE | WS_CLIPSIBLINGS | WS_SAVEBITS, 
+                FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+        CONTROL "Depth:", IDC_NULL, 11, 116, 30, 8, WC_STATIC, SS_TEXT | DT_LEFT |
+                DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "N/A", IDC_STATS_DEPTH, 65, 115, 43, 8, WC_STATIC, SS_TEXT | DT_LEFT |
+                DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "Position:", IDC_NULL, 14, 100, 39, 8, WC_STATIC, SS_TEXT |
+                DT_LEFT | DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "N/A", IDC_STATS_POSITION, 63, 99, 43, 8, WC_STATIC, SS_TEXT | DT_LEFT |
+                DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "Score:", IDC_NULL, 14, 83, 31, 8, WC_STATIC, SS_TEXT | DT_LEFT |
+                DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "N/A", IDC_STATS_SCORE, 62, 82, 43, 8, WC_STATIC, SS_TEXT | DT_LEFT |
+                DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "Nodes:", IDC_NULL, 15, 63, 30, 8, WC_STATIC, SS_TEXT | DT_LEFT |
+                DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "N/A", IDC_STATS_NODES, 62, 65, 43, 8, WC_STATIC, SS_TEXT | DT_LEFT |
+                DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "Nodes/Sec:", IDC_NULL, 11, 48, 50, 8, WC_STATIC, SS_TEXT |
+                DT_LEFT | DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "N/A", IDC_STATS_RATE, 67, 47, 43, 8, WC_STATIC, SS_TEXT | DT_LEFT |
+                DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "Best line", IDC_NULL, 11, 5, 108, 38, WC_STATIC, SS_GROUPBOX |
+                WS_GROUP | WS_VISIBLE
+        CONTROL "", IDC_STATS_BEST, 19, 12, 94, 21, WC_MLE, MLS_READONLY | MLS_WORDWRAP |
+                WS_GROUP | WS_TABSTOP | WS_VISIBLE
+    END
+END
+
+DLGTEMPLATE IDD_SKILL_TIME LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "Set Time LImits     ", IDD_SKILL_TIME, 70, 72, 194, 92, FS_NOBYTEALIGN | 
+                FS_DLGBORDER | WS_VISIBLE | WS_CLIPSIBLINGS | WS_SAVEBITS, 
+                FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+        CONTROL "Time limit", IDC_NULL, 5, 25, 184, 29, WC_STATIC, SS_GROUPBOX |
+                WS_GROUP | WS_VISIBLE
+        CONTROL "5", IDC_SKILL_T5, 15, 32, 19, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE | WS_GROUP
+        CONTROL "15", IDC_SKILL_T15, 47, 32, 22, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE
+        CONTROL "30", IDC_SKILL_T30, 84, 32, 22, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE
+        CONTROL "60", IDC_SKILL_T60, 119, 32, 22, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE
+        CONTROL "600", IDC_SKILL_T600, 153, 32, 30, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE
+        CONTROL "Number of moves", IDC_NULL, 5, 59, 184, 29, WC_STATIC, SS_GROUPBOX |
+                WS_GROUP | WS_VISIBLE
+        CONTROL "1", IDC_SKILL_M1, 15, 66, 19, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE |WS_GROUP
+        CONTROL "10", IDC_SKILL_M10, 47, 66, 22, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE
+        CONTROL "20", IDC_SKILL_M20, 84, 66, 22, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE
+        CONTROL "40", IDC_SKILL_M40, 119, 66, 22, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE
+        CONTROL "60", IDC_SKILL_M60, 153, 66, 22, 10, WC_BUTTON, BS_AUTORADIOBUTTON |
+                WS_VISIBLE
+        CONTROL "Ok", IDC_OK, 38, 6, 38, 13, WC_BUTTON, BS_PUSHBUTTON |
+                BS_DEFAULT | WS_TABSTOP | WS_VISIBLE | WS_GROUP
+        CONTROL "Cancel", IDC_CANCEL, 119, 6, 38, 13, WC_BUTTON, BS_PUSHBUTTON |
+                WS_VISIBLE
+    END
+END
+
+DLGTEMPLATE IDD_NUMDLG LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "", IDD_NUMDLG, 39, 139, 180, 55, FS_NOBYTEALIGN | FS_DLGBORDER |
+                WS_VISIBLE | WS_CLIPSIBLINGS | WS_SAVEBITS
+    BEGIN
+        CONTROL "", IDC_NUMDLG_CHAR, 9, 43, 162, 8, WC_STATIC, SS_TEXT | DT_CENTER |
+                DT_VCENTER | WS_GROUP | WS_VISIBLE
+        CONTROL "", IDC_NUMDLG_INT, 9, 27, 162, 8, WC_ENTRYFIELD, ES_LEFT | ES_MARGIN |
+                WS_TABSTOP | WS_VISIBLE
+        CONTROL "Ok", IDC_OK, 34, 6, 38, 13, WC_BUTTON, BS_PUSHBUTTON |
+                BS_DEFAULT | WS_TABSTOP | WS_VISIBLE
+        CONTROL "Cancel", IDC_CANCEL, 107, 6, 38, 13, WC_BUTTON, BS_PUSHBUTTON |
+                WS_TABSTOP | WS_VISIBLE
+    END
+END
+
+DLGTEMPLATE IDD_ABOUT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "OS/2 PM Chess Version 1.01     ", IDD_ABOUT, 89, 75, 214, 108, FS_NOBYTEALIGN |
+                FS_DLGBORDER | WS_VISIBLE | WS_CLIPSIBLINGS | WS_SAVEBITS, 
+                FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+        CONTROL 32, 65535, 15, 79, 22, 16, WC_STATIC, SS_ICON | WS_GROUP | 
+                WS_VISIBLE
+        CONTROL "GNU CHESS 3.1", 65535, 53, 95, 76, 8, WC_STATIC, SS_TEXT | 
+                DT_LEFT | DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "Windows version by Daryl K. Baker", 65535, 53, 84, 158, 8, 
+                WC_STATIC, SS_TEXT | DT_LEFT | DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "Port to OS/2 by Kent Cedola", 65535, 53, 71, 122, 8, WC_STATIC, 
+                SS_TEXT | DT_LEFT | DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "Portions (C) by:", 65535, 3, 49, 68, 8, WC_STATIC, SS_TEXT | 
+                DT_LEFT | DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "Free Software Foundation Inc.", 65535, 53, 37, 132, 8, 
+                WC_STATIC, SS_TEXT | DT_LEFT | DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "John Stanback", 65535, 53, 25, 68, 8, WC_STATIC, SS_TEXT | 
+                DT_LEFT | DT_TOP | WS_GROUP | WS_VISIBLE
+        CONTROL "Ok", 1, 81, 6, 48, 13, WC_BUTTON, BS_PUSHBUTTON | BS_DEFAULT | 
+                WS_TABSTOP | WS_VISIBLE
+    END
+END
+
+STRINGTABLE
+  {
+  IDS_CHESS,         "PmChess"
+  IDS_ILLEGALMOVE,   "Illegal move"
+  IDS_AMBIGUOUSMOVE, "Ambiguous move"
+  IDS_OBAE,          "Warning: Opening book too large"
+  IDS_OBNF,          "Warning: Opening book not found"
+  IDS_UNABLESAVE,    "Unable to save game"
+  IDS_UNABLELIST,    "Unable to list game"
+  IDS_DRAWGAME,      "Draw Game"
+  IDS_YOUWIN,        "Opponent mates"
+  IDS_COMPUTERWIN,   "Computer mates"
+  IDS_MATESOON,      "Oppenent will soon mate"
+  IDS_COMPMATE,      "Computer will soon mate"
+  IDS_TTABLEAF,      "ttable Allocation Failed"
+  IDS_SQDATAAF,      "sqdata Allocation Failed"
+  IDS_HISTORYAF,     "History Allocation Failed"
+  IDS_TREEAF,        "Tree Allocation Failed"
+  IDS_GAMEAF,        "Game List Allocation Failed"
+  IDS_LOADFAILED,    "Loading saved game failed"
+  IDS_SETAWIN,       "Set A Window"
+  IDS_SETBWIN,       "Set B Window"
+  IDS_SETCONTEMPT,   "Set Contempt"
+  IDS_MAXSEARCH,     "Set maximun search depth"
+  IDS_INITERROR,     "Initialization error"
+  }

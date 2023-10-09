@@ -1,0 +1,8 @@
+PmChess.obj Piece.obj Stats.obj TimeCnt.obj +              
+Eval.obj Globals.obj Search.obj Dsp.obj Book.obj Init.obj +              
+Board.obj MswDsp.obj Color.obj Create.obj +              
+Promote.obj Test.obj InitMenu.obj NumDlg.obj                
+PmChess.exe                
+PmChess.map /MAP/CO/NOD    
+mlibca os2                 
+PmChess.def                

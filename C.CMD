@@ -1,0 +1,1 @@
+nmake -f PmChess.mak > temp.tmp
